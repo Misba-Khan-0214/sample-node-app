@@ -1,4 +1,4 @@
-pipeline {
+=pipeline {
   agent any
   environment {
     DOCKERHUB_CREDENTIALS = 'dockerhub-creds'
@@ -7,8 +7,10 @@ pipeline {
     TARGET_HOST = '13.233.255.94'
     DOCKERHUB_REPO = 'misba0214/sample-node-app'
     IMAGE_TAG = "latest"
-    SONAR_HOST = credentials('sonar-host-url')
-    SONAR_TOKEN = credentials('jenkins-sonar')
+
+    // Hardcoded SonarQube values
+    SONAR_HOST = "http://host.docker.internal:9000"
+    SONAR_TOKEN = credentials('jenkins-sonar')   // keep token as a secret
   }
 
   stages {
