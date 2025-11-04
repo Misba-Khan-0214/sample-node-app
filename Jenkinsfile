@@ -17,11 +17,14 @@ pipeline {
       }
     }
     stage('Install & Test') {
-      steps {
-        sh 'npm ci'
-        sh 'npm test || true'   // don't fail pipeline for demo; remove || true for strict runs
-      }
+  steps {
+    nodejs(nodeJSInstallationName: 'Node18') {
+      sh 'npm ci'
+      sh 'npm test || true'
     }
+  }
+}
+
     stage('Gitleaks Scan') {
       steps {
         sh '''
