@@ -4,7 +4,7 @@ pipeline {
     DOCKERHUB_CREDENTIALS = 'dockerhub-creds'    // Jenkins credentials id (username/password)
     SSH_CREDENTIALS = 'target-ssh-key'           // Jenkins SSH private key credential id
     SSH_USER = 'ec2-user'                        // target server SSH user
-    TARGET_HOST = 'TARGET.SERVER.IP'             // replace with your server IP or hostname
+    TARGET_HOST = '13.233.255.94 '             // replace with your server IP or hostname
     DOCKERHUB_REPO = 'misba0214/sample-node-app'
     IMAGE_TAG = "latest"
     SONAR_HOST = credentials('sonar-host-url')   // store sonar host as "Username with password" or secret text. Alternative: use plain URL in pipeline env.
